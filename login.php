@@ -1,3 +1,8 @@
+<script>
+	// Update document title (because we can't modify document title using header.php)
+	// Easy modify title using JavaScript
+	document.title = "Login";
+</script>
 <?php
 // =========================================================
 //  This code allows us to login our phonebook
