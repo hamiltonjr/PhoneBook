@@ -4,6 +4,14 @@
 	document.title = "Show contacts";
 </script>
 <?php
+// =========================================================
+//  This code allows us show the contacts already added in
+//  the phonebook database
+//  
+//  This code is part of a simple phone notebook project to
+//  be a example of code project of my portfolio
+//  Name: Hamilton G, Jr - System Engineer
+// =========================================================
 	// connection
 	require_once 'db_connect.php';
 
@@ -25,6 +33,7 @@
 
 	<div class="row">
   		<div class="col s12 m6 push-m3">
+        <p>Logged: <?php echo $login ?></p>
   			<h3 class="light">Show contacts</h3>
   			<table class="striped">
   				<thead>
@@ -46,7 +55,7 @@
   					</tr>  					
   				</tbody>
   			</table><br/>
-  			<a href="" class="btn">Add contact</a>
+  			<a href="add.php" class="btn">Add contact</a>
   			<a href="index.html" class="btn">Home</a>
 		</div>
 	</div>
