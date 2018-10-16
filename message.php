@@ -3,7 +3,7 @@
 	session_start();
 
   // verifying if message session exists
-  if (isset($_SESSION['message'])) { ?>
+  if (isset($_SESSION['message']) and $_SESSION['message'] != '') { ?>
     <script>
       window.onload = function() {
         M.toast({html: '<?php echo $_SESSION['message'] ?>' });

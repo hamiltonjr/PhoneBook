@@ -55,7 +55,7 @@
               <td><?php echo $data['surname'] ?></td>
               <td><?php echo $data['email'] ?></td>
               <td><?php echo $data['phone'] ?></td>
-  						<td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
+  						<td><a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
   						<td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
   					</tr>
             <?php }
