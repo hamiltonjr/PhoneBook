@@ -18,8 +18,8 @@
 	// header
 	require_once 'header.php';
 
-	// session initialization
-	session_start();
+  // mensagem
+  include_once 'message.php';
 
 	// show user name
 	if (isset($_SESSION['id-user'])) {
@@ -38,21 +38,28 @@
   			<table class="striped">
   				<thead>
   					<tr>
-  						<td>Name</td>
-  						<td>Surname</td>
-  						<td>Email</td>
-  						<td>Phone</td>
+  						<td><strong>Name</strong></td>
+  						<td><strong>Surname</strong></td>
+  						<td><strong>Email</strong></td>
+  						<td><strong>Phone</strong></td>
   					</tr>
   				</thead>
   				<tbody>
+            <?php
+              $sql = "SELECT * FROM contacts ORDER BY name";
+              $result = mysqli_query($connect, $sql);
+              while ($data = mysqli_fetch_array($result)) {
+            ?>
   					<tr>
-  						<td>Hamilton</td>
-  						<td>Gonçalves Jr</td>
-  						<td>hamiltonjr2010@gmail.com</td>
-  						<td>19997930712</td>
+  						<td><?php echo $data['name'] ?></td>
+              <td><?php echo $data['surname'] ?></td>
+              <td><?php echo $data['email'] ?></td>
+              <td><?php echo $data['phone'] ?></td>
   						<td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
   						<td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-  					</tr>  					
+  					</tr>
+            <?php }
+            ?>			
   				</tbody>
   			</table><br/>
   			<a href="add.php" class="btn">Add contact</a>

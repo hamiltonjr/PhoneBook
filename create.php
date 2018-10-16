@@ -15,6 +15,9 @@
 	// connection
 	require_once 'db_connect.php';
 
+	// session initialization
+	session_start();
+
 	if (isset($_POST['btn-create'])) {
 		$name = mysqli_escape_string($connect, $_POST['name']);
 		$surname = mysqli_escape_string($connect, $_POST['surname']);
@@ -25,9 +28,11 @@
 			VALUES ('$name', '$surname', '$email', '$phone')";
 
 		if (mysqli_query($connect, $sql)) {
-			header('Location: read.php?Sucesso');
+			$_SESSION['message'] = 'Contact successfully added';
+			header('Location: read.php');
 		} else {
-			header('Location: read.php?Falha');
+			$_SESSION['message'] = 'ERROR: contact not added';
+			header('Location: read.php');
 		}
 	}
 ?>
