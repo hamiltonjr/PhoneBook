@@ -55,15 +55,36 @@
               <td><?php echo $data['surname'] ?></td>
               <td><?php echo $data['email'] ?></td>
               <td><?php echo $data['phone'] ?></td>
-  						<td><a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-  						<td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-  					</tr>
+  						
+              <td><a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
+  						
+              <td><a href="#modal<?php echo $data['id']; ?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
+
+              <!-- Modal Structure -->
+                <div id="modal<?php echo $data['id']; ?>" class="modal">
+                  <div class="modal-content">
+                    <h4>Hey!</h4>
+                    <p>Are you sure you want to delete the contact?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <form action="delete.php" method="POST">
+                      <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                      <div  style="margin-top:-20px">
+                        <button type="submit" name="btn-delete" class="btn red">Yes</button>
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+    					</tr>
             <?php }
             ?>			
   				</tbody>
   			</table><br/>
   			<a href="add.php" class="btn">Add contact</a>
   			<a href="index.html" class="btn">Home</a>
+        <a href="logout.php" class="btn red">Log out</a>
 		</div>
 	</div>
 
